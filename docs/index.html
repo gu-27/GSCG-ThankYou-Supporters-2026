@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You — GSCG Spring 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy:  #002967;
+    --red:   #C8102E;
+    --gold:  #c9a84c;
+    --dark:  #0f172a;
+    --bg:    #f8fafc;
+    --border:#e2e8f0;
+    --muted: #64748b;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--dark); line-height: 1.6; }
+
+  /* HERO */
+  .hero {
+    background: var(--navy); color: white;
+    text-align: center; padding: 5.5rem 2rem 4.5rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 65% 0%, rgba(200,16,46,.18) 0%, transparent 60%),
+                radial-gradient(ellipse at 15% 100%, rgba(201,168,76,.12) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .hero-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+  .hero h1 { font-family: 'Libre Baskerville', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.15; margin-bottom: 1.25rem; }
+  .hero-sub { font-size: clamp(.95rem, 2vw, 1.1rem); color: rgba(255,255,255,.75); max-width: 640px; margin: 0 auto 2.5rem; }
+  .principles { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; }
+  .pill { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 100px; padding: .35rem 1rem; font-size: .75rem; font-weight: 600; letter-spacing: .05em; color: rgba(255,255,255,.85); }
+
+  /* TRIP SECTION */
+  .trip-section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+  .trip-eyebrow { font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--red); margin-bottom: .5rem; }
+  .trip-title { font-family: 'Libre Baskerville', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--navy); line-height: 1.2; margin-bottom: .6rem; }
+  .trip-intro { color: var(--muted); font-size: .95rem; max-width: 720px; margin-bottom: 1.75rem; }
+
+  /* AGENDA */
+  .agenda-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 3rem; }
+  .agenda-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; }
+  .agenda-tag { display: inline-block; font-size: .65rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; background: var(--navy); color: white; border-radius: 5px; padding: .2rem .6rem; margin-bottom: .65rem; }
+  .agenda-card h4 { font-size: .95rem; font-weight: 800; color: var(--navy); margin-bottom: .5rem; }
+  .agenda-list { list-style: none; }
+  .agenda-list li { font-size: .82rem; color: #374151; padding: .25rem 0; border-bottom: 1px solid #f1f5f9; display: flex; gap: .5rem; align-items: baseline; }
+  .agenda-list li:last-child { border-bottom: none; }
+  .agenda-list li::before { content: '·'; color: var(--red); font-weight: 900; flex-shrink: 0; }
+
+  /* PHOTO GRID */
+  .photo-section-label { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .4rem; border-radius: 14px; overflow: hidden; margin-bottom: 3.5rem;
+  }
+  .photo-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform .3s ease; }
+  .photo-grid img:hover { transform: scale(1.04); z-index: 1; position: relative; }
+  .photo-grid img:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: unset; height: 100%; }
+
+  /* STUDENTS */
+  .students-label { font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
+  .student-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.25rem; }
+  .student-card { background: white; border-radius: 14px; padding: 1.4rem; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+  .student-top { display: flex; align-items: center; gap: .9rem; margin-bottom: 1rem; }
+  .student-hs { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid var(--border); }
+  .student-name { font-size: .93rem; font-weight: 800; color: var(--navy); line-height: 1.2; }
+  .student-meta { font-size: .73rem; color: var(--muted); margin-top: .15rem; line-height: 1.4; }
+  .trip-badge { display: inline-block; font-size: .6rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; border-radius: 100px; padding: .18rem .6rem; margin-top: .3rem; }
+  .badge-portland { background: #fef3c7; color: #92400e; }
+  .badge-seattle  { background: #dbeafe; color: #1e40af; }
+  .student-quote { font-family: 'Libre Baskerville', serif; font-size: .86rem; font-style: italic; color: #374151; line-height: 1.72; border-left: 3px solid var(--red); padding-left: .85rem; }
+  .principle-tag { display: inline-block; font-size: .6rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: #f1f5f9; color: var(--muted); border-radius: 4px; padding: .15rem .5rem; margin-top: .7rem; }
+
+  /* DIVIDER BAND */
+  .divider-band { background: var(--navy); color: white; text-align: center; padding: 3.5rem 2rem; }
+  .divider-band p { font-family: 'Libre Baskerville', serif; font-size: clamp(1.1rem, 2.5vw, 1.6rem); font-style: italic; opacity: .9; max-width: 700px; margin: 0 auto; }
+  .divider-band cite { display: block; font-family: 'Inter', sans-serif; font-style: normal; font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-top: .8rem; }
+
+  /* FOOTER */
+  .footer { background: var(--dark); color: rgba(255,255,255,.5); text-align: center; padding: 2.5rem 2rem; font-size: .8rem; }
+  .footer strong { color: white; }
+
+  @media (max-width: 700px) {
+    .agenda-grid { grid-template-columns: 1fr; }
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    .photo-grid img:first-child { grid-column: span 2; }
+    .student-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Gonzaga Sport Consulting Group · Spring 2026</div>
+  <h1>Thank You to Our Supporters</h1>
+  <p class="hero-sub">This spring, eighteen GSCG students traveled to Portland and Seattle — meeting with world-class organizations, presenting real consulting work, and growing in ways that only happen through experience. Your support made every moment possible.</p>
+  <div class="principles">
+    <span class="pill">Grow Through GSCG</span>
+    <span class="pill">Support Each Other's Growth</span>
+    <span class="pill">Do Hard Things</span>
+    <span class="pill">Have Fun</span>
+  </div>
+</section>
+
+<!-- PORTLAND -->
+<div class="trip-section">
+  <div class="trip-eyebrow">Spring 2026 · Portland, OR</div>
+  <h2 class="trip-title">Portland</h2>
+  <p class="trip-intro">Seven students spent time in Portland across two visits — a full day at Nike World Headquarters in Beaverton and a mentorship session with Gonzaga alumna Torrey. Both experiences pushed students to think harder about who they want to become.</p>
+
+  <div class="agenda-grid">
+    <div class="agenda-card">
+      <span class="agenda-tag">Nike World HQ · Beaverton, OR</span>
+      <h4>Nike Campus Visit</h4>
+      <ul class="agenda-list">
+        <li>Full campus tour of Nike World Headquarters</li>
+        <li>Career conversations with Gonzaga alumni Andrew &amp; Hayley</li>
+        <li>Behind-the-scenes look at Nike's innovation spaces</li>
+        <li>Discussion on building a career in a global brand organization</li>
+        <li>Mentorship Q&amp;A on navigating early career decisions</li>
+      </ul>
+    </div>
+    <div class="agenda-card">
+      <span class="agenda-tag">Torrey · Portland, OR</span>
+      <h4>Mentorship Session with Torrey</h4>
+      <ul class="agenda-list">
+        <li>Intimate career conversation with Gonzaga alumna Torrey</li>
+        <li>Discussion on non-linear career paths and self-trust</li>
+        <li>Candid advice on consulting, leadership, and knowing your worth</li>
+        <li>Open Q&amp;A on doing hard things early in your career</li>
+        <li>Reflection on how to use your voice in professional settings</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="photo-section-label">Photos — Portland</div>
+  <div class="photo-grid">
+    <img src="https://gu-27.github.io/gscg-photos/photos/portland/IMG_5537.JPG" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/portland/IMG_5542.JPG" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/portland/IMG_5545.JPG" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/portland/IMG_5581.JPG" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/portland/IMG_5590.JPG" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/portland/IMG_5591.JPG" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/portland/IMG_5609.JPG" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/portland/IMG_5611.JPG" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/portland/IMG_5623.jpeg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/portland/IMG_5647.jpeg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/portland/IMG_5679.jpeg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/portland/IMG_9313.JPG" alt="">
+  </div>
+
+  <div class="students-label">Student Reflections — Portland Team</div>
+  <div class="student-grid">
+
+    <div class="student-card">
+      <div class="student-top">
+        <img class="student-hs" src="img/headshots/portland/matthew-marin.jpg" alt="Matthew Marin">
+        <div>
+          <div class="student-name">Matthew Marin</div>
+          <div class="student-meta">Senior · Marketing · Los Angeles, CA · Project Manager</div>
+          <span class="trip-badge badge-portland">Portland</span>
+        </div>
+      </div>
+      <p class="student-quote">"Meeting with such a down-to-earth alumna like Torrey was super reassuring and motivating. She always gives the most honest advice — every time I speak with her, I feel more motivated about post-grad life."</p>
+      <span class="principle-tag">Grow Through GSCG</span>
+    </div>
+
+    <div class="student-card">
+      <div class="student-top">
+        <img class="student-hs" src="img/headshots/portland/dylan-hite.jpg" alt="Dylan Hite">
+        <div>
+          <div class="student-name">Dylan Hite</div>
+          <div class="student-meta">Sophomore · Finance &amp; Economics · Tacoma, WA · Consultant</div>
+          <span class="trip-badge badge-portland">Portland</span>
+        </div>
+      </div>
+      <p class="student-quote">"The tour broadened my perspective on how much variety there is in both business problems and working cultures. My biggest takeaway was the importance of buying into a company's vision — and finding my own 'why.'"</p>
+      <span class="principle-tag">Do Hard Things</span>
+    </div>
+
+    <div class="student-card">
+      <div class="student-top">
+        <img class="student-hs" src="img/headshots/portland/lauren-smith.jpg" alt="Lauren Smith">
+        <div>
+          <div class="student-name">Lauren Smith</div>
+          <div class="student-meta">Sophomore · Accounting · Seattle, WA · Consultant</div>
+          <span class="trip-badge badge-portland">Portland</span>
+        </div>
+      </div>
+      <p class="student-quote">"My biggest takeaway was learning how to ensure my voice gets heard as a woman in business. Torrey modeled exactly what it looks like to lead with confidence and earn your seat at the table."</p>
+      <span class="principle-tag">Do Hard Things</span>
+    </div>
+
+    <div class="student-card">
+      <div class="student-top">
+        <img class="student-hs" src="img/headshots/portland/jake-scalzo.jpg" alt="Jake Scalzo">
+        <div>
+          <div class="student-name">Jake Scalzo</div>
+          <div class="student-meta">Sophomore · Marketing International · Minneapolis, MN · Consultant</div>
+          <span class="trip-badge badge-portland">Portland</span>
+        </div>
+      </div>
+      <p class="student-quote">"Talking with Torrey was an absolute wake-up call to trust my own abilities. I really limit myself sometimes — but hearing her perspective helped me realize I am more capable than I give myself credit for."</p>
+      <span class="principle-tag">Grow Through GSCG</span>
+    </div>
+
+    <div class="student-card">
+      <div class="student-top">
+        <img class="student-hs" src="img/headshots/portland/rachel-walker.jpg" alt="Rachel Walker">
+        <div>
+          <div class="student-name">Rachel Walker</div>
+          <div class="student-meta">Portland Team · Consultant</div>
+          <span class="trip-badge badge-portland">Portland</span>
+        </div>
+      </div>
+      <p class="student-quote">"Torrey's career path was not a straight line — hearing how and why she moved from place to place helped me realize that my own uncertainty is not a weakness. It's part of the process."</p>
+      <span class="principle-tag">Grow Through GSCG</span>
+    </div>
+
+    <div class="student-card">
+      <div class="student-top">
+        <img class="student-hs" src="img/headshots/portland/noah-liu.jpg" alt="Noah Liu">
+        <div>
+          <div class="student-name">Noah Liu</div>
+          <div class="student-meta">Portland Team · Consultant</div>
+          <span class="trip-badge badge-portland">Portland</span>
+        </div>
+      </div>
+      <p class="student-quote">"Talking with Torrey gave me a clearer picture of what consulting could actually look like post-graduation. It made a career in sports feel genuinely within reach for the first time."</p>
+      <span class="principle-tag">Grow Through GSCG</span>
+    </div>
+
+    <div class="student-card">
+      <div class="student-top">
+        <img class="student-hs" src="img/headshots/portland/mia-crosby.jpg" alt="Mia Crosby">
+        <div>
+          <div class="student-name">Mia Crosby</div>
+          <div class="student-meta">Portland Team · Consultant</div>
+          <span class="trip-badge badge-portland">Portland</span>
+        </div>
+      </div>
+      <p class="student-quote">"It was really interesting to hear what consulting actually looks like day to day — and hearing that it is okay to not have everything figured out was exactly what I needed to hear right now."</p>
+      <span class="principle-tag">Support Each Other's Growth</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- DIVIDER -->
+<div class="divider-band">
+  <p>"When someone takes their time to invest in you, you can learn from that as you grow older — and do the same for others."</p>
+  <cite>Jake Scalzo · Portland Team · Nike Visit</cite>
+</div>
+
+<!-- SEATTLE -->
+<div class="trip-section">
+  <div class="trip-eyebrow">Spring 2026 · Seattle, WA</div>
+  <h2 class="trip-title">Seattle</h2>
+  <p class="trip-intro">Seven students spent two days in Seattle — first going behind the scenes at Lumen Field with the Seattle Seahawks organization, then presenting a full semester of consulting work directly to the Seattle Mariners front office at T-Mobile Park.</p>
+
+  <div class="agenda-grid">
+    <div class="agenda-card">
+      <span class="agenda-tag">Seattle Seahawks · Lumen Field</span>
+      <h4>Seahawks Visit</h4>
+      <ul class="agenda-list">
+        <li>Behind-the-scenes tour of Lumen Field</li>
+        <li>Mentorship conversations with Seahawks staff Michael &amp; Lisa</li>
+        <li>Discussion on career stages, timing, and knowing your season of life</li>
+        <li>Exploration of business operations inside an NFL organization</li>
+        <li>Reflection on balancing professional ambition with personal growth</li>
+      </ul>
+    </div>
+    <div class="agenda-card">
+      <span class="agenda-tag">Seattle Mariners · T-Mobile Park</span>
+      <h4>Mariners Consulting Presentation</h4>
+      <ul class="agenda-list">
+        <li>Delivered semester-long consulting project to Mariners front office</li>
+        <li>Panel Q&amp;A with Mariners staff including Frances, Brooke, and Brier</li>
+        <li>Discussion on failure, growth, and building resilient teams</li>
+        <li>Tour of T-Mobile Park and operations facilities</li>
+        <li>Debrief on presenting to a real client organization</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="photo-section-label">Photos — Seattle · Lumen Field</div>
+  <div class="photo-grid">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Lumens/IMG_5901.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Lumens/IMG_5924.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Lumens/IMG_5938.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Lumens/IMG_5945.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Lumens/IMG_5951.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Lumens/IMG_5953.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Lumens/IMG_5962.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Lumens/IMG_5972.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Lumens/IMG_5991.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Lumens/IMG_5996.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Lumens/IMG_6008.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Lumens/IMG_6046.jpg" alt="">
+  </div>
+
+  <div class="photo-section-label">Photos — Seattle · T-Mobile Park</div>
+  <div class="photo-grid">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Mariners/IMG_6056.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Mariners/IMG_6061.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Mariners/IMG_6073.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Mariners/IMG_6086.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Mariners/IMG_6093.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Mariners/IMG_6104.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Mariners/IMG_6137.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Mariners/IMG_6139.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Mariners/IMG_6142.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Mariners/IMG_6146.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Mariners/IMG_6153.jpg" alt="">
+    <img src="https://gu-27.github.io/gscg-photos/photos/Mariners/IMG_6158.jpg" alt="">
+  </div>
+
+  <div class="students-label">Student Reflections — Seattle Team</div>
+  <div class="student-grid">
+
+    <div class="student-card">
+      <div class="student-top">
+        <img class="student-hs" src="img/headshots/seattle/paige-olson.jpeg" alt="Paige Olson">
+        <div>
+          <div class="student-name">Paige Olson</div>
+          <div class="student-meta">Senior · Marketing &amp; Finance · Portland, OR · Project Manager</div>
+          <span class="trip-badge badge-seattle">Seattle</span>
+        </div>
+      </div>
+      <p class="student-quote">"Visiting the Mariners reinforced the principles we strive to live out through GSCG. This experience truly allowed me to grow in ways I didn't anticipate."</p>
+      <span class="principle-tag">Grow Through GSCG</span>
+    </div>
+
+    <div class="student-card">
+      <div class="student-top">
+        <img class="student-hs" src="img/headshots/seattle/owen-hyatt.jpeg" alt="Owen Hyatt">
+        <div>
+          <div class="student-name">Owen Hyatt</div>
+          <div class="student-meta">Sophomore · Accounting &amp; Finance · Sammamish, WA · Director</div>
+          <span class="trip-badge badge-seattle">Seattle</span>
+        </div>
+      </div>
+      <p class="student-quote">"Working in sports is pretty darn cool, but it is not all sunshine and rainbows. The honest perspective from everyone we met made it feel real — and made me want it even more."</p>
+      <span class="principle-tag">Do Hard Things</span>
+    </div>
+
+    <div class="student-card">
+      <div class="student-top">
+        <img class="student-hs" src="img/headshots/seattle/charlie-herman.png" alt="Charles Herman" style="object-position:center top">
+        <div>
+          <div class="student-name">Charles Herman</div>
+          <div class="student-meta">Senior · Accounting, Finance &amp; MIS · Tamarindo, Costa Rica · Director</div>
+          <span class="trip-badge badge-seattle">Seattle</span>
+        </div>
+      </div>
+      <p class="student-quote">"The best jobs are often the ones that challenge you. It was clear from every person we interacted with that the challenge was what made their work meaningful."</p>
+      <span class="principle-tag">Do Hard Things</span>
+    </div>
+
+    <div class="student-card">
+      <div class="student-top">
+        <img class="student-hs" src="img/headshots/seattle/samantha-smith.jpeg" alt="Samantha Smith" style="object-position:85% 20%">
+        <div>
+          <div class="student-name">Samantha Smith</div>
+          <div class="student-meta">Sophomore · Accounting, Ops &amp; Supply Chain · Normandy Park, WA · Consultant</div>
+          <span class="trip-badge badge-seattle">Seattle</span>
+        </div>
+      </div>
+      <p class="student-quote">"I loved when Brier said he had to learn through 'trial by fire.' It reminded me that discomfort is not a sign you're doing something wrong — it's a sign you're growing."</p>
+      <span class="principle-tag">Do Hard Things</span>
+    </div>
+
+    <div class="student-card">
+      <div class="student-top">
+        <img class="student-hs" src="img/headshots/seattle/eamon-mohrbacher.jpeg" alt="Eamon Mohrbacher">
+        <div>
+          <div class="student-name">Eamon Mohrbacher</div>
+          <div class="student-meta">Sophomore · Finance &amp; Accounting · Seattle, WA · Consultant</div>
+          <span class="trip-badge badge-seattle">Seattle</span>
+        </div>
+      </div>
+      <p class="student-quote">"Your job will be significantly better if you create a community with people you enjoy being around. Clear communication through the good and the bad is key."</p>
+      <span class="principle-tag">Support Each Other's Growth</span>
+    </div>
+
+    <div class="student-card">
+      <div class="student-top">
+        <img class="student-hs" src="img/headshots/seattle/marcus-heppner.jpeg" alt="Marcus Heppner">
+        <div>
+          <div class="student-name">Marcus Heppner</div>
+          <div class="student-meta">Freshman · Business Admin &amp; Sports Management · San Diego, CA · Consultant</div>
+          <span class="trip-badge badge-seattle">Seattle</span>
+        </div>
+      </div>
+      <p class="student-quote">"This visit showed me how beneficial it is to approach new challenges with a willingness to learn — and that failure in the workspace can be a testament to growth and the ability to adapt."</p>
+      <span class="principle-tag">Grow Through GSCG</span>
+    </div>
+
+    <div class="student-card">
+      <div class="student-top">
+        <img class="student-hs" src="img/headshots/seattle/allison-kann.jpeg" alt="Allison Kann">
+        <div>
+          <div class="student-name">Allison Kann</div>
+          <div class="student-meta">Sophomore · Marketing · Carlsbad, CA · Consultant</div>
+          <span class="trip-badge badge-seattle">Seattle</span>
+        </div>
+      </div>
+      <p class="student-quote">"Thank you for everything you have done for us — before, during, and after our presentation. You had such an infectious energy that made every moment of this experience memorable."</p>
+      <span class="principle-tag">Have Fun</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p><strong>Gonzaga Sport Consulting Group</strong> · Spring 2026</p>
+  <p style="margin-top:.4rem">Gonzaga University · School of Business Administration · Director: John Correia</p>
+</footer>
+
+</body>
+</html>
