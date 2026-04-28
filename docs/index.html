@@ -22,23 +22,22 @@
 
   /* HERO */
   .hero {
-    background: linear-gradient(135deg, #a50d24 0%, var(--red) 60%, #e01535 100%);
-    color: white;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
     text-align: center; padding: 5.5rem 2rem 4.5rem;
     position: relative; overflow: hidden;
   }
   .hero::before {
     content: '';
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 65% 0%, rgba(0,0,0,.15) 0%, transparent 60%),
-                radial-gradient(ellipse at 15% 100%, rgba(0,0,0,.1) 0%, transparent 55%);
+    background: radial-gradient(ellipse at 60% 0%, rgba(200,16,46,.06) 0%, transparent 65%);
     pointer-events: none;
   }
-  .hero-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
-  .hero h1 { font-family: 'Libre Baskerville', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.15; margin-bottom: 1.25rem; }
-  .hero-sub { font-size: clamp(.95rem, 2vw, 1.1rem); color: rgba(255,255,255,.75); max-width: 640px; margin: 0 auto 2.5rem; }
+  .hero-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--red); margin-bottom: 1.25rem; }
+  .hero h1 { font-family: 'Libre Baskerville', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.15; color: var(--red); margin-bottom: 1.25rem; }
+  .hero-sub { font-size: clamp(.95rem, 2vw, 1.1rem); color: var(--muted); max-width: 640px; margin: 0 auto 2.5rem; }
   .principles { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; }
-  .pill { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 100px; padding: .35rem 1rem; font-size: .75rem; font-weight: 600; letter-spacing: .05em; color: rgba(255,255,255,.85); }
+  .pill { background: white; border: 1px solid var(--border); border-radius: 100px; padding: .35rem 1rem; font-size: .75rem; font-weight: 600; letter-spacing: .05em; color: var(--navy); box-shadow: 0 1px 3px rgba(0,0,0,.06); }
 
   /* TRIP BAND */
   .trip-band {
