@@ -22,15 +22,16 @@
 
   /* HERO */
   .hero {
-    background: var(--navy); color: white;
+    background: linear-gradient(135deg, #a50d24 0%, var(--red) 60%, #e01535 100%);
+    color: white;
     text-align: center; padding: 5.5rem 2rem 4.5rem;
     position: relative; overflow: hidden;
   }
   .hero::before {
     content: '';
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 65% 0%, rgba(200,16,46,.18) 0%, transparent 60%),
-                radial-gradient(ellipse at 15% 100%, rgba(201,168,76,.12) 0%, transparent 55%);
+    background: radial-gradient(ellipse at 65% 0%, rgba(0,0,0,.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 15% 100%, rgba(0,0,0,.1) 0%, transparent 55%);
     pointer-events: none;
   }
   .hero-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
@@ -45,7 +46,7 @@
     position: relative; overflow: hidden;
   }
   .trip-band-portland {
-    background: linear-gradient(135deg, #a50d24 0%, var(--red) 60%, #e01535 100%);
+    background: linear-gradient(135deg, #001a4d 0%, var(--navy) 60%, #003580 100%);
     color: white;
   }
   .trip-band-seattle {
